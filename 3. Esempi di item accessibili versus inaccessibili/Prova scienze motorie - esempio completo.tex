@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[accsupp]{axessibility}
+\usepackage{tgheros}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[defaultmathsizes]{mathastext}
+\usepackage{microtype}
+\DisableLigatures{encoding = *, family = *}
+\usepackage{ragged2e}
+\RaggedRight
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\usepackage{setspace}
+\setstretch{1.5}
+\usepackage{titlesec}
+\titleformat{\section}
+    {\fontsize{18}{27}\selectfont\bfseries}
+    {}{0em}{}
+
+\newcommand{\sqrtIT}[1]{%
+  \BeginAccSupp{method=escape,ActualText={radice quadrata di #1}}%
+  \sqrt{#1}%
+  \EndAccSupp{}%
+}
+
+% Macro per inline math con testo alternativo esplicito.
+% ActualText={...} con graffe evita che le virgole vengano
+% interpretate dal parser keyval di accsupp.
+\newcommand{\inlineformula}[2]{%
+  \BeginAccSupp{method=escape,ActualText={#1}}%
+  $#2$%
+  \EndAccSupp{}%
+}
+
+\AtBeginDocument{\pdfcatalog{/Lang (it-IT)}}
+\pagestyle{empty}
+
+\begin{document}
+\fontsize{18}{27}\selectfont
+
+\section*{Domanda 1}
+
+Luigi ha 2 figli di 15 e 11 anni.
+Fra 18 anni la sua età sarà uguale alla somma delle età
+che avranno i suoi figli.
+Quanti anni ha oggi Luigi?
+
+\begin{enumerate}
+    \item[a)] 30
+    \item[b)] Non si può dire
+    \item[c)] 52
+    \item[d)] 44
+\end{enumerate}
+
+\textbf{Risposta esatta: (d)}
+
+\newpage
+
+\section*{Domanda 2}
+
+Il resto della divisione del polinomio
+\inlineformula{x alla quinta meno 3 x alla quarta più 3}{x^5 - 3x^4 + 3}
+per \inlineformula{x più 1}{x + 1} è:
+
+\begin{enumerate}
+    \item[a)] 1
+    \item[b)] \inlineformula{meno 1}{-1}
+    \item[c)] 3
+    \item[d)] 0
+\end{enumerate}
+
+\textbf{Risposta esatta: (b)}
+
+\newpage
+
+\section*{Domanda 3}
+
+Sia \inlineformula{T}{T} un triangolo rettangolo isoscele.
+Allora la somma dei coseni degli angoli interni di \inlineformula{T}{T}
+è uguale a:
+
+\begin{enumerate}
+    \item[a)] 2
+    \item[b)] 1
+    \item[c)] $\sqrtIT{3}$
+    \item[d)] $\sqrtIT{4}$
+\end{enumerate}
+
+\textbf{Risposta esatta: (d)}
+
+\newpage
+
+\section*{Domanda 4}
+
+Il 30\% degli studenti iscritti a un corso universitario
+ha superato l'esame relativo al primo appello.
+Se, dei restanti studenti iscritti,
+il 10\% supera l'esame al secondo appello,
+gli studenti che devono ancora superare l'esame
+dopo i primi due appelli saranno:
+
+\begin{enumerate}
+    \item[a)] Il 37\% del numero totale di studenti iscritti al corso
+    \item[b)] Il 60\% del numero totale di studenti iscritti al corso
+    \item[c)] Il 63\% del numero totale di studenti iscritti al corso
+    \item[d)] Il 40\% del numero totale di studenti iscritti al corso
+\end{enumerate}
+
+\textbf{Risposta esatta: (c)}
+
+\newpage
+
+\section*{Domanda 5}
+
+Trova il risultato della seguente disequazione:
+\inlineformula{2 diviso x maggiore di 1}{\dfrac{2}{x} > 1}
+
+\begin{enumerate}
+    \item[a)] \inlineformula{x minore di 2}{x < 2}
+    \item[b)] \inlineformula{0 minore di x minore di 2}{0 < x < 2}
+    \item[c)] \inlineformula{x maggiore di 2}{x > 2}
+    \item[d)] \inlineformula{0 minore di x}{0 < x} e \inlineformula{x maggiore di 2}{x > 2}
+\end{enumerate}
+
+\textbf{Risposta esatta: (b)}
+
+\end{document}
