@@ -1,0 +1,56 @@
+% COMPILARE CON: pdflatex
+% Il default di axessibility in TL2023+ usa l'opzione 'tagpdf' che richiede
+% LuaLaTeX + fontspec. L'opzione 'accsupp' è pdflatex-compatibile e produce
+% ActualText nel PDF via BeginAccSupp — equivalente per gli screen reader.
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[accsupp]{axessibility}   % <-- opzione fondamentale per pdflatex
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[pdftitle={Esempio accessibile},
+            pdfauthor={Gabriel},
+            pdflang={it-IT},
+            hidelinks]{hyperref}
+
+\begin{document}
+
+\section*{Formula della velocità media}
+
+La velocità media di un corpo in moto uniforme è:
+
+\begin{equation}
+    v = \frac{\Delta s}{\Delta t}
+\end{equation}
+
+dove:
+
+\begin{itemize}
+    \item $v$ è la velocità media (m/s);
+    \item $\Delta s$ è lo spazio percorso (m);
+    \item $\Delta t$ è l'intervallo di tempo (s).
+\end{itemize}
+
+%---------------------------------------------------------------
+% Override del testo alternativo: la sintassi è
+%   \begin{equation}[testo letto dallo screen reader]
+% Utile quando la lettura auto-generata è ambigua.
+%---------------------------------------------------------------
+\section*{Media aritmetica con testo alternativo esplicito}
+
+\begin{equation}[media aritmetica uguale sommatoria da i uguale 1 a n di x sub i, diviso n]
+    \bar{x} = \frac{\displaystyle\sum_{i=1}^{n} x_i}{n}
+\end{equation}
+
+Proprietà principali:
+
+\begin{itemize}
+    \item È sensibile ai valori anomali (outlier);
+    \item La somma degli scarti dalla media è sempre zero:
+          $\displaystyle\sum_{i=1}^{n}(x_i - \bar{x}) = 0$;
+    \item Minimizza la somma dei quadrati degli scarti.
+\end{itemize}
+
+\end{document}s
